@@ -3,14 +3,6 @@ import fastify from 'fastify';
 const server = fastify();
 
 server.get('/', async (request, reply) => {
-    const data = request.body;
-  
-    return {
-      data,
-    };
-  });
-
-server.get('/success', async (request, reply) => {
   const data = request.body;
 
   return {
@@ -18,32 +10,24 @@ server.get('/success', async (request, reply) => {
   };
 });
 
-server.get('/error', async (request, reply) => {
-    const data = request.body;
-  
-    return {
-      data,
-    };
-  });
+server.post('/success', async (request, reply) => {
+  const data = request.body;
 
-  server.post('/success', async (request, reply) => {
-    const data = request.body;
-  
-    return {
-      data,
-    };
-  });
-  
-  server.post('/error', async (request, reply) => {
-      const data = request.body;
-    
-      return {
-        data,
-      };
-    });
-  
+  return {
+    data,
+  };
+});
 
-server.listen({ port: 8080 }, (err, address) => {
+server.post('/error', async (request, reply) => {
+  const data = request.body;
+
+  return {
+    data,
+  };
+});
+const port = Number(process.env.PORT) || 3000;
+
+server.listen({ port }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
