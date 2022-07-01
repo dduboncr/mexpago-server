@@ -1,31 +1,13 @@
-import fastify from 'fastify';
+import { Request, Response } from "express";
 
-const server = fastify();
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
-server.get('/', async (request, reply) => {
-  const data = request.body;
-
-  return {
-    data,
-  };
+app.get('/', (_req: Request, res: Response) => {
+  res.send('Hello World!');
 });
 
-server.post('/success', async (request, reply) => {
-  const data = request.body;
-
-  return {
-    data,
-  };
-});
-
-server.post('/error', async (request, reply) => {
-  const data = request.body;
-
-  return {
-    data,
-  };
-});
-
-server.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-  console.log('running server');
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
