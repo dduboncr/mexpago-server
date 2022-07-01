@@ -26,6 +26,6 @@ server.post('/error', async (request, reply) => {
   };
 });
 
-server.listen(process.env.PORT || 3000, () => {
+server.listen(process.env.PORT || 3000, '0.0.0.0', () => {
   console.log('running server');
 });

@@ -32,11 +32,6 @@ server.post('/error', (request, reply) => __awaiter(void 0, void 0, void 0, func
         data,
     };
 }));
-const port = Number(process.env.PORT) || 3000;
-server.listen({ port }, (err, address) => {
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
-    console.log(`Server listening at ${address}`);
+server.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+    console.log('running server');
 });
